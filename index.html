@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Bài tập Js buổi 5</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="main.css" />
+  </head>
+  <body>
+    <div class="project">
+      <div class="container py-5">
+        <div class="card mx-auto">
+          <!-- Nav pills -->
+          <ul class="nav nav-pills jutify-content-center">
+            <li class="nav-item">
+              <a class="nav-link active" data-toggle="pill" href="#bai1"
+                >Bài 1</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="pill" href="#bai2">Bài 2</a>
+            </li>
+            
+          </ul>
+          <hr />
+          <!-- Tab panes -->
+          <div class="tab-content">
+            <div class="tab-pane container active" id="bai1">
+              <h3>Tính thuế thu nhập cá nhân</h3>
+              <p>Viết chương trình nhập vào thông tin của 1 cá nhân (Họ tên, tổng thu nhập năm, số
+                người phụ thuộc). Tính và xuất thuế thu nhập cá nhân phải trả theo quy định sau:</p>
+              <div class="form-group row">
+                <div class="col-4">
+                  <input
+                    class="form-control"
+                    id="nhapHoTen"
+                    placeholder="Nhập họ tên"
+                  />
+                </div>
+                <div class="col-4">
+                    <input
+                    class="form-control"
+                    id="thuNhapNam"
+                    placeholder="Tổng thu nhập năm"
+                    type="number"
+                  />
+                </div>
+                <div class="col-4">
+                    <input
+                    class="form-control"
+                    id="soNguoiPhuThuoc"
+                    placeholder="Số người phụ thuộc"
+                    type="number"
+                  />
+                </div>
+                <div class="col-4 mt-2">
+                  <button class="btn btn-primary" id="btnTinhTienThue">
+                    Tính tiền thuế
+                </div>
+              </div>
+              <div
+                class="form-group mt-2 alert alert-success"
+                id="ketQua_b1"
+              ></div>
+            </div>
+            <div class="tab-pane container fade" id="bai2">
+              <h3>Tính tiền cáp</h3>
+              <p>Viết chương trình tính hóa đơn khách hàng cho một công ty cáp. Có 2 loại khách hàng:
+                Nhà dân và doanh nghiệp. Có 2 mức giá tính tiền cáp:</p>
+              <p>Nhà dân:</p>
+              <ul>
+                <li>Phí xử lý hóa đơn: 4.5$</li>
+                <li>Phí dịch vụ cơ bản: 20.5$</li>
+                <li>Thuê kênh cao cấp: 7.5$ / kênh</li>
+              </ul>
+              <p>Doanh nghiệp:</p>
+              <ul>
+                <li>Phí xử lý hóa đơn: 15$</li>
+                <li>Phí dịch vụ cơ bản: 75$ cho tổng 10 kết nối đầu, mỗi kết nối thêm 5$ / kết nối</li>
+                <li>Thuê kênh cao cấp: 50$ / kênh</li>
+              </ul>
+              <div class="form-group row">
+                <div class="col-4">
+                    <select class="form-control" id="chonKhachHang" name="" onchange="disableInput()">
+                        <option value="">Chọn khách hàng</option>
+                        <option value="nhaDan">Nhà Dân</option>
+                        <option value="doanhNghiep">Doanh Nghiệp</option>
+                      </select>
+                </div>
+                <div class="col-4">
+                    <input
+                    class="form-control"
+                    id="nhapMaKhachHang"
+                    placeholder="Nhập mã khách hàng"
+                    type="number"
+                  />
+                </div>
+                <div class="col-4">
+                    <input
+                    class="form-control"
+                    id="soKenh"
+                    placeholder="Số kênh cao cấp"
+                    type="number"
+                  />
+                </div>
+                <div class="col-4 mt-2">
+                    <input
+                    class="form-control"
+                    id="soKetNoi"
+                    placeholder="Số kết nối"
+                    type="number"
+                    style="display: none;"  
+                  />
+                </div>
+                <div class="col-12 mt-2">
+                    <button class="btn btn-primary" id="btnTinhTienCap">
+                     Tính tiền cáp
+                  </div>
+              </div>
+              
+              <div
+                class="form-group mt-2 alert alert-success"
+                id="ketQua_b2"
+              ></div>
+            </div>
+            
+            
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./main.js"></script>
+  </body>
+</html>
