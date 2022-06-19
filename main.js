@@ -16,10 +16,13 @@
 document.getElementById('btnTinhTienThue').onclick = thueCaNhan;
 
 function thueCaNhan() {
+    //input: ten: string, thuNhapNam, soNguoi: number
     var ten = document.getElementById('nhapHoTen').value;
     var thuNhapNam = Number(document.getElementById('thuNhapNam').value);
     var soNguoi = Number(document.getElementById('soNguoiPhuThuoc').value);
 
+
+    //output: thueCaNhan: number, chiuThue: number
     var chiuThue = 0;
 
     var chiuThue = thuNhapNam - 4e6 - 16e5 * soNguoi;
@@ -46,7 +49,7 @@ function thueCaNhan() {
     }
 
 
-
+    //hiển thị giao diện
     document.getElementById('ketQua_b1').innerHTML = 'Họ tên: ' + ten + '; Tiền thuế là: ' + thueCaNhan.toLocaleString() + ' VND';
 }
 
@@ -60,12 +63,13 @@ function disableInput() {
 }
 
 function tinhTienCap() {
+    //input: chonKhachHang: string, maKhachHang: number, soKenh; number, soKetNoi: number
     var chonKhachHang = document.getElementById('chonKhachHang').value;
     var nhapMaKhachHang = document.getElementById('nhapMaKhachHang').value;
     var soKenh = document.getElementById('soKenh').value;
     var soKetNoi = document.getElementById('soKetNoi').value;
 
-
+    //output: tienCap: number
     var tienCap = 0;
 
     if ('nhaDan' == chonKhachHang) {
@@ -76,6 +80,7 @@ function tinhTienCap() {
         tienCap = 'Hãy chọn loại khách hàng !';
     }
 
+    //hiển thị giao diện
     document.getElementById('ketQua_b2').innerHTML = 'Mã khách hàng: ' + nhapMaKhachHang + '; Tiền cáp: ' + new Intl.NumberFormat("en-US", {
         style: "currency",
         currency: "USD"
